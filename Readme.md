@@ -8,7 +8,7 @@ Este repositório contém uma aplicação full stack dividida em:
 
 📂 Estrutura
 
-pokemon-app/
+JazidaDesafio/
 ├── backend/     # API com rotas para CRUD de pokémons e batalhas
 ├── frontend/    # Aplicação React para interagir com a API
 └── README.md    # Este arquivo
