@@ -31,7 +31,7 @@ cd backend
 npm install
 npm run dev
 
-Crie um arquivo .env com:
+Crie/altere um arquivo .env com:
 
 DATABASE_URL=postgres://usuario:senha@localhost:5432/pokemon
 MONGO_URI=mongodb://localhost:27017/pokemon
@@ -60,6 +60,8 @@ Frontend: http://localhost:5173
 
 API Backend: http://localhost:3000/pokemons
 
+Documentação Swagger: http://localhost:3000/docs
+
 O backend aguarda o banco de dados PostgreSQL ficar pronto, com tentativas de reconexão automáticas.
 
 🧪 Testes
@@ -67,6 +69,12 @@ O backend aguarda o banco de dados PostgreSQL ficar pronto, com tentativas de re
 No diretório do backend:
 
 npm run test
+
+⚙️ Integração Contínua (CI)
+
+O projeto possui um pipeline de CI via GitHub Actions, que executa automaticamente os testes e a build do backend e frontend a cada push ou pull request na branch main.
+
+Arquivo de workflow: .github/workflows/ci.yml
 
 📚 Documentação da API
 
@@ -102,7 +110,12 @@ Interface com Tailwind CSS
 
 Comunicação com backend via VITE_BACKEND_URL
 
+🌐 Deploy
+
+🔗 Backend (Railway): https://jazidadesafio-production.up.railway.app/pokemons
+
+🔗 Frontend (Vercel): https://jazida-desafio.vercel.app/
+
 👨‍💻 Desenvolvido para desafio técnico da Jazida
 
 Feito por Kleison
-
