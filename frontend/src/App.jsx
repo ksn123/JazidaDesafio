@@ -22,7 +22,7 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [newTrainerMap, setNewTrainerMap] = useState({});
 
-  const API = 'http://localhost:3000';
+  const API = import.meta.env.VITE_BACKEND_URL;
 
   const loadPokemons = async () => {
     const { data } = await axios.get(`${API}/pokemons`);

@@ -15,8 +15,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "runtest": "jest --config ./tests/jest.config.js",
-    "swagger-autogen": "node ./src/docs/swagger-autogen.js"
+    "test": "jest --config ./tests/jest.config.js",
+    "swagger-autogen": "node ./src/docs/swagger-autogen.js",
+    "dev": "node src/server.js"
   },
   "keywords": [],
   "author": "",
