@@ -17,7 +17,8 @@
   "scripts": {
     "test": "jest --config ./tests/jest.config.js",
     "swagger-autogen": "node ./src/docs/swagger-autogen.js",
-    "dev": "node src/server.js"
+    "dev": "node src/server.js",
+    "db:init": "node src/utils/scripts/initTestScript.js"
   },
   "keywords": [],
   "author": "",
