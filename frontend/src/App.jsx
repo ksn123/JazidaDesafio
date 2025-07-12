@@ -22,10 +22,15 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [newTrainerMap, setNewTrainerMap] = useState({});
 
-  const API = import.meta.env.VITE_BACKEND_URL;
+  
+  const api = axios.create({
+    baseURL: import.meta.env.VITE_BACKEND_URL,
+  });
+
+  
 
   const loadPokemons = async () => {
-    const { data } = await axios.get(`${API}/pokemons`);
+    const { data } = await api.get('/pokemons');
     setPokemons(data);
   };
 
@@ -34,27 +39,27 @@ export default function App() {
   }, []);
 
   const createPokemon = async () => {
-    await axios.post(`${API}/pokemons`, { tipo:type, treinador:trainer });
+    await api.post('/pokemons', { tipo:type, treinador:trainer });
     setTrainer('');
     loadPokemons();
   };
 
   const deletePokemon = async (id) => {
-    await axios.delete(`${API}/pokemons/${id}`);
+    await api.delete(`/pokemons/${id}`);
     loadPokemons();
   };
 
   const updateTrainer = async (id) => {
     const newTrainer = newTrainerMap[id];
     if (!newTrainer || !newTrainer.trim()) return;
-    await axios.put(`${API}/pokemons/${id}`, { treinador: newTrainer });
+    await api.put(`/pokemons/${id}`, { treinador: newTrainer });
     setNewTrainerMap((prev) => ({ ...prev, [id]: '' }));
     loadPokemons();
   };
 
   const battle = async () => {
     if (!pokeA || !pokeB) return;
-    const { data } = await axios.post(`${API}/batalhar/${pokeA}/${pokeB}`);
+    const { data } = await api.post(`/batalhar/${pokeA}/${pokeB}`);
     setResult(data);
     setPokeA(null);
     setPokeB(null);
