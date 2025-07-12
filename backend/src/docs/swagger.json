@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Pokémon API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/pokemons": {
+      "post": {
+        "summary": "Create a new pokemon",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string" },
+                  "trainer": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Successfully created!" }
+        }
+      }
+    }
+  }
+}
