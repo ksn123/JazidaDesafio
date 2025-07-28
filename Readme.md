@@ -1,121 +1,116 @@
-Pokémon App (Full Stack)
+# Pokémon App (Full Stack)
 
-Este repositório contém uma aplicação full stack dividida em:
+Este repositório contém uma aplicação full stack composta por:
 
-📦 backend/: API REST em Node.js com Express, PostgreSQL e MongoDB
+- **Backend**: API REST construída com Node.js, Express, PostgreSQL e MongoDB
+- **Frontend**: Interface desenvolvida com React, Vite e Tailwind CSS
 
-🖥️ frontend/: Interface React + Vite + Tailwind CSS
+## Estrutura do Projeto
 
-📂 Estrutura
-
+```
 JazidaDesafio/
 ├── backend/     # API com rotas para CRUD de pokémons e batalhas
 ├── frontend/    # Aplicação React para interagir com a API
 └── README.md    # Este arquivo
+```
 
-🚀 Como rodar localmente
+## Como Executar Localmente
 
-Pré-requisitos
+### Pré-requisitos
 
-Node.js (18+)
+- Node.js (versão 18 ou superior)
+- PostgreSQL
+- MongoDB
+- Docker e Docker Compose (opcional, mas recomendado)
 
-PostgreSQL
+### Executando o Backend Manualmente
 
-MongoDB
-
-Docker + Docker Compose (recomendado)
-
-🔧 Backend (modo local manual)
-
+```bash
 cd backend
 npm install
 npm run dev
+```
 
-Crie/altere um arquivo .env com:
+Crie ou edite um arquivo `.env` com o seguinte conteúdo:
 
+```
 DATABASE_URL=postgres://usuario:senha@localhost:5432/pokemon
 MONGO_URI=mongodb://localhost:27017/pokemon
 PORT=3000
+```
 
-🖥️ Frontend (modo local manual)
+### Executando o Frontend Manualmente
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-Acesse: http://localhost:5173
+Acesse o frontend em: [http://localhost:5173](http://localhost:5173)
 
-🐳 Rodando com Docker (recomendado)
+### Executando com Docker (Recomendado)
 
-Certifique-se de que Docker e Docker Compose estão instalados
+Certifique-se de que Docker e Docker Compose estão instalados. Na raiz do projeto, execute:
 
-Na raiz do projeto, rode:
-
-docker-compose down -v  # limpa volumes persistentes antigos (1ª vez ou reset)
+```bash
+docker-compose down -v    # Limpa volumes persistentes antigos (recomendado na primeira vez)
 docker-compose up --build
+```
 
-Acesse:
+Acesse os serviços:
 
-Frontend: http://localhost:5173
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- API Backend: [http://localhost:3000/pokemons](http://localhost:3000/pokemons)
+- Documentação Swagger: [http://localhost:3000/docs](http://localhost:3000/docs)
 
-API Backend: http://localhost:3000/pokemons
+O backend aguarda a inicialização do banco de dados PostgreSQL com tentativas de reconexão automáticas.
 
-Documentação Swagger: http://localhost:3000/docs
+## Testes
 
-O backend aguarda o banco de dados PostgreSQL ficar pronto, com tentativas de reconexão automáticas.
+Para executar os testes do backend:
 
-🧪 Testes
-
-No diretório do backend:
-
+```bash
+cd backend
 npm run test
+```
 
-⚙️ Integração Contínua (CI)
+## Integração Contínua (CI)
 
-O projeto possui um pipeline de CI via GitHub Actions, que executa automaticamente os testes e a build do backend e frontend a cada push ou pull request na branch main.
+Este projeto utiliza integração contínua via GitHub Actions. O pipeline executa automaticamente os testes e builds do backend e frontend a cada push ou pull request na branch `main`.
 
-Arquivo de workflow: .github/workflows/ci.yml
+Arquivo de configuração: `.github/workflows/ci.yml`
 
-📚 Documentação da API
+## Documentação da API
 
-Após iniciar o backend, acesse:
+Acesse após iniciar o backend:
 
-http://localhost:3000/docs
+[http://localhost:3000/docs](http://localhost:3000/docs)
 
-📌 Funcionalidades
+## Funcionalidades
 
-Backend
+### Backend
 
-CRUD completo de Pokémons (tipo, treinador, nível)
+- CRUD completo de Pokémons (tipo, treinador, nível)
+- Lógica de batalha com probabilidades
+- Persistência em PostgreSQL (dados) e MongoDB (logs de batalha)
+- Documentação via Swagger
+- Testes unitários e de integração com Jest
+- Reconexão automática ao banco de dados
 
-Lógica de batalha com probabilidades
+### Frontend
 
-Persistência em PostgreSQL (dados) e MongoDB (logs de batalha)
+- Criação, exclusão e edição de Pokémons
+- Execução de batalhas entre Pokémons
+- Visualização dos resultados
+- Interface responsiva com Tailwind CSS
+- Comunicação via variável `VITE_BACKEND_URL`
 
-Swagger para documentação da API
+## Deploy
 
-Testes unitários e de integração com Jest
+- Backend (Railway): [https://jazidadesafio-production.up.railway.app/pokemons](https://jazidadesafio-production.up.railway.app/pokemons)
+- Frontend (Vercel): [https://jazida-desafio.vercel.app/](https://jazida-desafio.vercel.app/)
 
-Reconexão automática ao banco em caso de falha
+## Desenvolvedor
 
-Frontend
-
-Criação, exclusão e edição de Pokémons
-
-Execução de batalhas entre dois Pokémons selecionados
-
-Visualização do resultado da batalha
-
-Interface com Tailwind CSS
-
-Comunicação com backend via VITE_BACKEND_URL
-
-🌐 Deploy
-
-🔗 Backend (Railway): https://jazidadesafio-production.up.railway.app/pokemons
-
-🔗 Frontend (Vercel): https://jazida-desafio.vercel.app/
-
-👨‍💻 Desenvolvido para desafio técnico da Jazida
-
-Feito por Kleison
+Desenvolvido por Kleison para o desafio técnico da Jazida.
